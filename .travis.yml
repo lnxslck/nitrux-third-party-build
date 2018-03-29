@@ -1,12 +1,21 @@
 sudo: required
-dist: bionic
 
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    - sourceline: 'deb http://archive.neon.kde.org/dev/stable/ bionic main'
-      key_url: 'http://archive.neon.kde.org/public.key'
+services:
+  - docker
+
+script:
+ - docker pull ubuntu:bionic
+ - docker run -v $PWD:/mnt ubuntu:bionic /bin/bash -x -c "/mnt/build.sh"
+
+after_success:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y realpath
+  - wget https://raw.githubusercontent.com/nomad-desktop/nxos-repository-util/master/nxos-repository-util.sh -O nxos-repository-util.sh
+  - chmod +x nxos-repository-util.sh
+  - ./nxos-repository-util.sh upload testing $PWD/KDE-AppImage-Thumbnailer/build/*.deb
+
+after_failure:
+  - echo "Failure"
 
 branches:
   except:
