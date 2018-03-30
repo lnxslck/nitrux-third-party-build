@@ -12,8 +12,8 @@ after_success:
   - sudo apt-get install -y realpath
   - wget https://raw.githubusercontent.com/nomad-desktop/nxos-repository-util/master/nxos-repository-util.sh -O nxos-repository-util.sh
   - chmod +x nxos-repository-util.sh
-  - ./nxos-repository-util.sh upload testing $PWD/appimage-desktop-integration/build/apppimage-desktop-integration-first-run*.deb
-  - ./nxos-repository-util.sh upload testing $PWD/appimage-desktop-integration/build/apppimage-desktop-integration-user-apps-monitor*.deb
+  - ./nxos-repository-util.sh upload testing $PWD/appimage-desktop-integration/build/appimage-desktop-integration-first-run*.deb
+  - ./nxos-repository-util.sh upload testing $PWD/appimage-desktop-integration/build/appimage-desktop-integration-user-apps-monitor*.deb
 
 after_failure:
   - echo "Failure"
