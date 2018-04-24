@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 set -x
+
+apt-get -qq update
 apt-get install -y gnupg2
 
 wget -qO - 'http://archive.neon.kde.org/public.key' | apt-key add -
