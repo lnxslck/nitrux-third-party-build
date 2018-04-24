@@ -14,7 +14,7 @@ echo 'deb http://repo.nxos.org/testing/ nxos main' | tee /etc/apt/sources.list.d
 apt-get -qq update
 
 apt-get install -y build-essential cmake git qtdeclarative5-dev extra-cmake-modules libqt5xmlpatterns5-dev \
-    libappimage-dev libcairo2-dev libglib2.0-dev
+    libappimage-dev libcairo2-dev libglib2.0-dev libssl-dev
 
 
 cd /mnt
