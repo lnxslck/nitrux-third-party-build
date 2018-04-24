@@ -6,7 +6,9 @@ echo 'deb http://archive.neon.kde.org/dev/stable/ bionic main' | tee /etc/apt/so
 
 apt-get -qq update
 
-apt-get install -y build-essential cmake git qtdeclarative5-dev extra-cmake-modules libqt5xmlpatterns5-dev
+apt-get install -y build-essential cmake git qtdeclarative5-dev extra-cmake-modules libqt5xmlpatterns5-dev \
+    libappimage-dev libcairo2-dev libglib2.0-dev
+
 
 cd /mnt
 
