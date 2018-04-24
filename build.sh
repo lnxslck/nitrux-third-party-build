@@ -3,7 +3,7 @@
 set -x
 
 apt-get -qq update
-apt-get install -y gnupg2
+apt-get install -y gnupg2 wget
 
 wget -qO - 'http://archive.neon.kde.org/public.key' | apt-key add -
 echo 'deb http://archive.neon.kde.org/dev/stable/ bionic main' | tee /etc/apt/sources.list.d/neon-stable.list
