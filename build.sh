@@ -4,7 +4,7 @@
 set -x
 
 apt-get -qq update
-apt-get install -y wget apt
+apt-get install -y wget apt gnupg2
 
 wget -qO - 'http://archive.neon.kde.org/public.key' | apt-key add -
 echo 'deb http://archive.neon.kde.org/dev/stable/ bionic main' | tee /etc/apt/sources.list.d/neon-stable.list
@@ -14,7 +14,8 @@ echo 'deb http://repo.nxos.org/testing/ nxos main' | tee /etc/apt/sources.list.d
 
 apt-get -qq update
 
-apt-get install -y build-essential git cmake extra-cmake-modules pkg-config libappimage-dev qtbase5-dev libglib2.0-dev libcairo2-dev libssl-dev
+apt-get install -y build-essential git cmake extra-cmake-modules pkg-config libappimage-dev qtbase5-dev libglib2.0-dev \
+    libcairo2-dev libssl-dev
 
 cd /mnt
 
