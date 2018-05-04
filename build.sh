@@ -24,7 +24,7 @@ git submodule update --init
 mkdir build
 cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_TESTING=ON -DAPPIMAGEKIT_PACKAGE_DEBS=ON || exit 1
-make -j2 || exit 1
+make -j2 VERBOSE=1 || exit 1
 
 cpack
 
