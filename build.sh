@@ -3,7 +3,7 @@
 set -x
 
 apt-get -qq update
-apt-get install wget gnupg2
+apt-get install -y wget gnupg2
 
 echo 'deb http://archive.ubuntu.com/ubuntu bionic main restricted universe multiverse' | tee /etc/apt/sources.list.d/bionic.list
 echo 'deb http://archive.ubuntu.com/ubuntu bionic-updates main restricted universe multiverse' | tee /etc/apt/sources.list.d/bionic-updates.list
