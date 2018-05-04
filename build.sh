@@ -17,14 +17,14 @@ apt-get install -y build-essential automake autotools-dev libtool wget patchelf 
 
 cd /mnt
 
-git clone https://github.com/AppImage/AppImageKit.git --depth 1
+git clone https://github.com/AppImage/AppImageKit.git -b TheAssassin/issue-757 --depth 1
 cd AppImageKit
 git submodule update --init
 
 mkdir build
 cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_TESTING=ON -DAPPIMAGEKIT_PACKAGE_DEBS=ON || exit 1
-make || exit 1
+make -j2 || exit 1
 
 cpack
 
