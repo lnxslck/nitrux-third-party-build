@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 
 set -x
+
+apt-get -qq update
+apt-get install wget gnupg2
+
 echo 'deb http://archive.ubuntu.com/ubuntu bionic main restricted universe multiverse' | tee /etc/apt/sources.list.d/bionic.list
 echo 'deb http://archive.ubuntu.com/ubuntu bionic-updates main restricted universe multiverse' | tee /etc/apt/sources.list.d/bionic-updates.list
 echo 'deb http://archive.neon.kde.org/dev/stable/ bionic main' | tee /etc/apt/sources.list.d/neon-stable.list
+
 wget -qO - 'http://archive.neon.kde.org/public.key' | apt-key add -
 
 apt-get -qq update
@@ -18,7 +23,8 @@ git submodule update --init
 
 mkdir build
 cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_TESTING=ON -DAPPIMAGEKIT_PACKAGE_DEBS=ON
-make -j2
+cmake .. -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=RelWithDebInfo -DBUILD_TESTING=ON -DAPPIMAGEKIT_PACKAGE_DEBS=ON || exit 1
+make -j2 || exit 1
 
 cpack
+
