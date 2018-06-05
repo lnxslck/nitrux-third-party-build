@@ -16,6 +16,7 @@ apt-get -qq update
 apt-get install -y build-essential automake autotools-dev libtool wget patchelf xxd desktop-file-utils g++ git cmake libglib2.0-dev zlib1g-dev libcairo2-dev libssl-dev libfuse-dev
 
 
+cd /mnt
 git clone https://github.com/AppImage/AppImageKit.git --depth 1
 cd AppImageKit
 git submodule update --init
