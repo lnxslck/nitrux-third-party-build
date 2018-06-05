@@ -12,7 +12,7 @@ after_success:
   - sudo apt-get install -y realpath
   - wget https://raw.githubusercontent.com/nomad-desktop/nxos-repository-util/master/nxos-repository-util.sh -O nxos-repository-util.sh
   - chmod +x nxos-repository-util.sh
-  - ./nxos-repository-util.sh upload testing $PWD/AppImageKit/build/libappimage*.deb
+  - ./nxos-repository-util.sh upload development $PWD/AppImageKit/build/libappimage*.deb
 
 after_failure:
   - echo "Failure"
